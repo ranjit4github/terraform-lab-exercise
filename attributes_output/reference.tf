@@ -9,8 +9,6 @@ terraform {
 
 provider "aws" {
   region = "ap-south-1"
-  access_key = "AKIA56WJ6ZK5FQ34V6SL"
-  secret_key = "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"
 }
 
 resource "aws_eip" "myeip" {
