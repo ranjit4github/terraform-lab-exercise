@@ -1,0 +1,1 @@
+#Add AWS_ACCESS_KEY and AWS_SECRET_KEY as variables in terraform.tfvars file
