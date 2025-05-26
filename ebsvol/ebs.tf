@@ -1,15 +1,15 @@
-# Creating EBS volume
-resource "aws_ebs_volume" "storage" {
+
+resource aws_ebs_volume ebs_volume {
   availability_zone = "ap-south-1a"
-  size              = 30
+  size              = 30 # Size in GB
+  type              = "gp2" # General Purpose SSD
   tags = {
-    Name = "demoEBS"
+    Name = "MyEBSVolume"
   }
 }
 
-# Attaching EBS volume to EC2
-resource "aws_volume_attachment" "ebs_vol" {
-  device_name = "/dev/sdh"
-  volume_id   = aws_ebs_volume.storage.id
+resource aws_volume_attachment demo_volume_attach {
+  device_name = "/dev/sdh" # Device name in the instance
+  volume_id   = aws_ebs_volume.ebs_volume.id
   instance_id = aws_instance.myec2.id
 }
